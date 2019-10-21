@@ -155,3 +155,13 @@ OVN To-do List
 
       match(ip4.src == {IP1, IP2, IP3} && ip4.dst == {IP4, IP5, IP6} &&
       tcp.dst >= 1000 && tcp.dst <= 2000) actions=allow
+
+* OVN Interconnection
+
+  * Packaging for RHEL, Debian, etc.
+
+  * Gateway HA enhancement. Currently gateway HA relies on each OVN's BFD
+    monitoring detecting gateway failover and updating port-binding in
+    SB DB, which then is synced to IC-SB DB by ovn-ic. This may have longer
+    latency for failover than monitoring between each gateway pairs
+    acrossing OVN.

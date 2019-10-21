@@ -3,6 +3,11 @@ Post-v2.12.0
    - This is the first release after OVN is split from Open vSwitch
      project.
 
+   - OVN Interconnection:
+     * Support for L3 interconnection of multiple OVN deployments with tunnels
+       managed by OVN.  See instructions in
+       Documentation/tutorials/ovn-interconnection.rst.
+
 v2.12.0 - 03 Sep 2019
 ---------------------
    - DPDK:
