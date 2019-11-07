@@ -132,3 +132,15 @@ Configuring RBAC
                     /path/to/chassis_2-cert.pem /path/to/cacert.pem
       $ ovs-vsctl set open_vswitch . \
                     external_ids:ovn-remote=ssl:machine_3-ip:6642
+
+Configuring RBAC for Northd
+---------------------------
+
+1. Since there is no rbac support for northd, to access southbound db, make northd listen on a seperate port
+say 6648 with a new connection table entry.
+
+      In `machine_3`::
+
+          $ ovn-sbctl -- --id=@conn_uuid create Connection \
+          "target=pssl\\:6648\\:0.0.0.0" -- \
+          add SB_Global . connections @conn_uuid
